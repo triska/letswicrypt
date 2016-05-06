@@ -1,0 +1,20 @@
+[Unit]
+Description=HTTPS Server
+
+[Service]
+UMask=022
+Environment=LANG=en_US.utf8
+Restart=on-abort
+StartLimitInterval=60
+LimitNOFILE=1000
+DefaultStartLimitBurst=5
+WorkingDirectory=/home/you/letswicrypt
+ExecStart=/usr/local/bin/swipl server.pl --https --no-fork --user=you \
+   --certfile=/var/www/xyz.com/server.crt \
+   --keyfile=/var/www/xyz.com/server.key \
+   --workers=16 --syslog=https \
+   --cipherlist=DEFAULT:!RC4:!DES \
+   --keep_alive_timeout=600
+
+[Install]
+WantedBy=multi-user.target
