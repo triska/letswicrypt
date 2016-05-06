@@ -27,8 +27,8 @@ and then execute the following instructions on the host machine:
 
     $ ./letsencrypt-auto certonly --standalone -d xyz.com -d www.xyz.com
 
-**Note**: This requires that you *stop* any server that runs at
-port&nbsp;80 or port&nbsp;443.
+**Note**: This requires that you *stop* any server that listens on
+port&nbsp;80 or port&nbsp;443 until the certificate is obtained.
 
 After this is completed, you obtain 4 files in `/etc/letsencrypt/live/xyz.com/`:
 
@@ -48,9 +48,15 @@ We only need two of them:
 You can also use a different CA. To do that, you first create a new
 private key and certificate signing request&nbsp;(CSR). The file
 [openssl.cnf](openssl.cnf) shows you what is necessary to create
-a&nbsp;CSR for both `xyz.com`
-and&nbsp;`www.xyz.com`. Using&nbsp;`openssl.cnf`, you can create the
-key&nbsp;(`server.key`) and CSR&nbsp;(`server.csr`) for example with:
+a&nbsp;CSR for both `xyz.com` and&nbsp;`www.xyz.com`. The
+`alt_names`&nbsp;section is relevant to cover both domains:
+
+    [ alt_names ]
+    DNS.1 = www.xyz.com
+    DNS.2 = xyz.com
+
+Using&nbsp;`openssl.cnf`, you can create the key&nbsp;(`server.key`)
+and CSR&nbsp;(`server.csr`) for example with:
 
     openssl req -out server.csr -new -newkey rsa:2048 -nodes -keyout server.key -config openssl.cnf
 
