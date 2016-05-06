@@ -58,7 +58,7 @@ a&nbsp;CSR for both `xyz.com` and&nbsp;`www.xyz.com`. The
 Using&nbsp;`openssl.cnf`, you can create the key&nbsp;(`server.key`)
 and CSR&nbsp;(`server.csr`) for example with:
 
-    openssl req -out server.csr -new -newkey rsa:2048 -nodes -keyout server.key -config openssl.cnf
+    $ openssl req -out server.csr -new -newkey rsa:2048 -nodes -keyout server.key -config openssl.cnf
 
 You can inspect the created CSR with:
 
@@ -68,7 +68,7 @@ To obtain a certificate, you have again two options: Either use a
 trusted&nbsp;CA (simply supply&nbsp;`server.csr`), or self-sign the
 key using for example:
 
-    openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt -extensions v3_req -extfile openssl.cnf
+    $ openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt -extensions v3_req -extfile openssl.cnf
 
 In both cases, the files that are important for the following are:
 
@@ -91,6 +91,10 @@ variant you used to obtain them:
 
 As the name suggests, the private key is meant to be kept
 *private*. Therefore, make sure to use suitable file permissions.
+
+You can inspect the issued certificate with:
+
+    $ openssl x509 -in server.crt -text -noout
 
 ## Preliminaries: SWI-Prolog web server as Unix daemon
 
