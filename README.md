@@ -138,7 +138,7 @@ user after forking.
 ## Running an HTTPS server on system startup
 
 To launch the HTTPS server on system startup, have a look at the
-`systemd` sample service file [`https.service`](https.server).
+`systemd` sample service file [`https.service`](https.service).
 
 Adjust the file as necessary, copy it to `/etc/systemd/system` and enable it with
 
