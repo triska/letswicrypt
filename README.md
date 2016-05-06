@@ -60,9 +60,13 @@ and CSR&nbsp;(`server.csr`) for example with:
 
     openssl req -out server.csr -new -newkey rsa:2048 -nodes -keyout server.key -config openssl.cnf
 
-At this point, you have again two options: Either use a
-trusted&nbsp;CA (simply supply&nbsp;`server.csr`) to obtain a
-certificate, or self-sign the key using for example:
+You can inspect the created CSR with:
+
+    $ openssl req -text -noout -verify -in server.csr
+
+To obtain a certificate, you have again two options: Either use a
+trusted&nbsp;CA (simply supply&nbsp;`server.csr`), or self-sign the
+key using for example:
 
     openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt -extensions v3_req -extfile openssl.cnf
 
