@@ -27,7 +27,8 @@ and then execute the following instructions on the host machine:
 
     $ ./letsencrypt-auto certonly --standalone -d xyz.com -d www.xyz.com
 
-**Note**: This requires that you *stop* any server that runs at port&nbsp;443.
+**Note**: This requires that you *stop* any server that runs at
+port&nbsp;80 or port&nbsp;443.
 
 After this is completed, you obtain 4 files in `/etc/letsencrypt/live/xyz.com/`:
 
@@ -48,7 +49,7 @@ You can also use a different CA. To do that, you first create a new
 private key and certificate signing request&nbsp;(CSR). The file
 [openssl.cnf](openssl.cnf) shows you what is necessary to create
 a&nbsp;CSR for both `xyz.com`
-and&nspb;`www.xyz.com`. Using&nbsp;`openssl.cnf`, you can create the
+and&nbsp;`www.xyz.com`. Using&nbsp;`openssl.cnf`, you can create the
 key&nbsp;(`server.key`) and CSR&nbsp;(`server.csr`) for example with:
 
     openssl req -out server.csr -new -newkey rsa:2048 -nodes -keyout server.key -config openssl.cnf
@@ -64,7 +65,7 @@ In both cases, the files that are important for the following are:
   - `server.key`: the server's private key
   - `server.crt`: the certificate and certificate chain.
 
-Note that&mdash;upto naming&mdash;this corresponds to the files
+Note that&mdash;up to naming&mdash;this corresponds to the files
 obtained in Variant&nbsp;A.
 
 # Running an HTTPS server with SWI-Prolog
