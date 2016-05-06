@@ -1,7 +1,7 @@
 # LetSWICrypt &mdash; HTTPS servers with SWI-Prolog
 
 This repository shows you how to set up and run a secure&nbsp;(HTTPS)
-web&nbsp;server using SWI-Prolog and *Let's&nbsp;Encrypt* or other
+web&nbsp;server using SWI-Prolog and *Let's&nbsp;Encrypt* and other
 certificate authorities.
 
 # Requirements
