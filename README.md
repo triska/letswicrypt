@@ -166,9 +166,19 @@ then start the service with:
 # Making your server more secure
 
 Once your server is running, use for example
-[SSL&nbsp;LABS](https://www.ssllabs.com/) to assess the security of
+[SSL&nbsp;Labs](https://www.ssllabs.com/) to assess the security of
 your cipher suite. See also the `--cipherlist` command line option for
 the HTTP Unix&nbsp;daemon.
+
+For additional security, you can encrypt the server's private key,
+using for example:
+
+    $ openssl rsa -des -in server.key -out server.enc
+
+To use an encrypted key when starting the server, use the
+`--pwfile=FILE` command line&nbsp;option of the HTTP Unix daemon,
+where `FILE` stores the password and has suitably low access
+permissions.
 
 # Related projects
 
