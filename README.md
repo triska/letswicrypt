@@ -185,8 +185,9 @@ All this is is made possible thanks to:
 [**Jan Wielemaker**](http://eu.swi-prolog.org) for providing the
 Prolog system that made all this possible in the first place.
 
-**Matt Lilley** for `library(ssl)`, the SSL wrapper library that
-ships with SWI-Prolog. This is a requirement for&nbsp;HTTPS.
+[**Matt Lilley**](https://github.com/thetrime) for `library(ssl)`, the
+SSL wrapper library that ships with SWI-Prolog. The SWI-Prolog HTTPS
+server uses this library for secure connections.
 
 [**Charlie Hothersall-Thomas**](https://charlie.ht/) for
 implementation advice to enable more secure ciphers
