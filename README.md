@@ -22,8 +22,8 @@ search for and do not occur anywhere else in the configuration files.
 [**Let's Encrypt**](https://letsencrypt.org/) is a free certificate
 authority&nbsp;(CA).
 
-Installation and setup is easy. Follow the instructions on their page,
-and then execute the following instructions on the host machine:
+The tool is easy to install and run. Follow the instructions on their
+page, and then execute the following command on the host machine:
 
     $ ./letsencrypt-auto certonly --standalone -d xyz.com -d www.xyz.com
 
