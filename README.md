@@ -82,9 +82,9 @@ obtained in Variant&nbsp;A.
 
 In the previous section, we have seen two ways to obtain a private key
 and a certificate. For clarity, we have used different file names to
-distinguish the variants. In the following, we will assume the
-following files are available in `/var/www/xyz.com/`, no matter which
-variant you used to obtain them:
+distinguish the variants. We now assume the following files are
+available in `/var/www/xyz.com/`, no matter which variant you used to
+obtain them:
 
   - `server.key`: the server's private key
   - `server.crt`: the certificate and certificate chain.
@@ -109,11 +109,13 @@ with more useful content. Still, this basic server suffices to
 illustrate the principle for running an HTTPS&nbsp;server with any of
 the certificates we obtained in the previous steps.
 
-First, note that this server uses the [`http_unix_daemon`
-library](http://www.swi-prolog.org/pldoc/doc/swi/library/http/http_unix_daemon.pl). This
-library makes it extremely easy to run the web&nbsp;server as a
-Unix&nbsp;daemon. If you have an existing web server that you want to
-turn into a Unix daemon, apply the following steps:
+First, note that this server uses the [**`http_unix_daemon`
+library**](http://www.swi-prolog.org/pldoc/doc/swi/library/http/http_unix_daemon.pl).
+This library makes it extremely easy to run the web&nbsp;server as a
+Unix&nbsp;daemon by implicitly augmenting the code to let you
+configure the server using command line&nbsp;options. If you have an
+existing web server that you want to turn into a Unix daemon, apply
+the following steps:
 
   - add `:- use_module(library(http/http_unix_daemon)).` at the beginning
   - add the directive `:- initialization http_daemon.`
@@ -122,8 +124,9 @@ Once you have done this, you can run the server with:
 
     $ swipl server.pl --port=PORT
 
-and it will automatically launch as a daemon process. During development,
-is is easier to work with the server on the terminal, which you can do with:
+and it will automatically launch as a daemon process. During
+development, is is easier to work with the server on the terminal
+using an interactive Prolog&nbsp;toplevel, which you can enable with:
 
 <pre>
 $ swipl server.pl --port=PORT <b>--interactive</b>
