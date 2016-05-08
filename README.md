@@ -102,12 +102,12 @@ SWI-Prolog is extremely well suited for writing web servers.
 
 The file [server.pl](server.pl) contains a very simple web server that
 is written using SWI-Prolog. In its current form, it simply replies
-with a `404 Not found` error to any request. In a more
-realistic scenario, you would of course supply a more suitable
-definition for&nbsp;`handle_request/1`, so that the server replies
-with more useful content. Still, this basic server suffices to
-illustrate the principle for running an HTTPS&nbsp;server with any of
-the certificates we obtained in the previous steps.
+with&nbsp;`Hello!` to any request. In a more realistic scenario, you
+would of course supply a more suitable definition
+of&nbsp;`handle_request/1`, so that the server replies with more
+useful content. Still, this basic server suffices to illustrate the
+principle for running an HTTPS&nbsp;server with any of the
+certificates we obtained in the previous steps.
 
 First, note that this server uses the [**`http_unix_daemon`
 library**](http://www.swi-prolog.org/pldoc/doc/swi/library/http/http_unix_daemon.pl).
