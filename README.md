@@ -136,10 +136,10 @@ To find out more available command line options, use:
 
     $ swipl server.pl --help
 
-## Starting an HTTPS server
+## Starting a Prolog HTTPS server
 
-To start an HTTPS server, the following 3 command line options of the
-Unix daemon library are of particular relevance:
+To start an HTTPS server with SWI-Prolog, the following 3 command line
+options of the Unix daemon library are of particular relevance:
 
   - `--https`: enables HTTPS, using port 443 by default.
   - `--keyfile=FILE`: `FILE` contains the server's private key.
@@ -153,7 +153,7 @@ Note that running the server on port 443 requires root privileges. The
 `--user`&nbsp;option is necessary to drop privileges to the specified
 user after forking.
 
-## Running an HTTPS server on system startup
+## Launching the HTTPS server on system startup
 
 To launch the HTTPS server on system startup, have a look at the
 `systemd` sample service file [`https.service`](https.service).
@@ -186,10 +186,10 @@ permissions.
 # Related projects
 
 Check out [**Proloxy**](https://github.com/triska/proloxy): It is a
-*reverse&nbsp;proxy* that is written entirely in SWI-Prolog. Use it if
-you want to provide access to different web&nbsp;services under a
-common umbrella&nbsp;URL. You can of course also run Proloxy as an
-HTTPS&nbsp;server.
+*reverse&nbsp;proxy* that is written entirely in SWI-Prolog. Use
+Proloxy if you want to provide access to different web&nbsp;services
+under a common umbrella&nbsp;URL. You can of course also run it as an
+HTTPS&nbsp;server and thus encrypt traffic of all hosted services.
 
 # Acknowledgments
 
