@@ -6,9 +6,8 @@ certificate authorities.
 
 # Requirements
 
-The latest [git version of SWI-Prolog](https://github.com/SWI-Prolog)
-ships with everything that is necessary to run HTTPS&nbsp;servers. Any
-released version *greater* than&nbsp;7.3.20 will also work.
+SWI-Prolog <b>7.3.21</b> or later ships with everything that is
+necessary to run HTTPS&nbsp;servers as described in the following.
 
 # Obtaining a certificate
 
