@@ -179,7 +179,7 @@ using for example:
 
 To use an encrypted key when starting the server, use the
 `--pwfile=FILE` command line&nbsp;option of the HTTP Unix daemon,
-where `FILE` stores the password and has suitably low access
+where `FILE` stores the password and has suitably restrictive access
 permissions.
 
 # Related projects
