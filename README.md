@@ -168,9 +168,14 @@ then start the service with:
 # Making your server more secure
 
 Once your server is running, use for example
-[SSL&nbsp;Labs](https://www.ssllabs.com/) to assess the security of
-your cipher suite. See also the `--cipherlist` command line option for
-the HTTP Unix&nbsp;daemon.
+[SSL&nbsp;Labs](https://www.ssllabs.com/) to assess the quality of its
+encryption settings.
+
+As of 2016, it is possible to obtain an **A+** rating with SWI-Prolog
+HTTPS servers, by using:
+
+  - as ciphers: `EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:!RC4:!DES`
+  - the `Strict-Transport-Security` header field, to enable HSTS.
 
 For additional security, you can encrypt the server's private key,
 using for example:
@@ -187,8 +192,10 @@ permissions.
 Check out [**Proloxy**](https://github.com/triska/proloxy): It is a
 *reverse&nbsp;proxy* that is written entirely in SWI-Prolog. Use
 Proloxy if you want to provide access to different web&nbsp;services
-under a common umbrella&nbsp;URL. You can of course also run it as an
-HTTPS&nbsp;server and thus encrypt traffic of all hosted services.
+under a common umbrella&nbsp;URL.
+
+Importantly, you can run Proloxy as an HTTPS&nbsp;server and thus
+encrypt traffic of all hosted services at once.
 
 # Acknowledgments
 
