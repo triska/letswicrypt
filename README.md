@@ -24,10 +24,12 @@ authority&nbsp;(CA).
 The tool is easy to install and run. Follow the instructions on their
 page, and then execute the following command on the host machine:
 
-    $ ./letsencrypt-auto certonly --standalone -d xyz.com -d www.xyz.com
+    $ certbot certonly --standalone -d xyz.com -d www.xyz.com
 
 **Note**: This requires that you *stop* any server that listens on
-port&nbsp;80 or port&nbsp;443 until the certificate is obtained.
+port&nbsp;80 or port&nbsp;443 until the certificate is obtained. There
+are also other ways to obtain a certificate that allow you to keep
+existing servers running. See the documentation for more information.
 
 After this is completed, you obtain 4 files in `/etc/letsencrypt/live/xyz.com/`:
 
