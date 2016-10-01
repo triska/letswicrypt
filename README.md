@@ -99,7 +99,8 @@ You can inspect the issued certificate with:
 
 ## Preliminaries: SWI-Prolog web server as Unix daemon
 
-SWI-Prolog is extremely well suited for writing web servers.
+SWI-Prolog is extremely well suited for writing
+[**web&nbsp;applications**](https://www.metalevel.at/prolog/web.html).
 
 The file [server.pl](server.pl) contains a very simple web server that
 is written using SWI-Prolog. In its current form, it simply replies
@@ -110,8 +111,8 @@ useful content. Still, this basic server suffices to illustrate the
 principle for running an HTTPS&nbsp;server with any of the
 certificates we obtained in the previous steps.
 
-First, note that this server uses the [**`http_unix_daemon`
-library**](http://www.swi-prolog.org/pldoc/doc/swi/library/http/http_unix_daemon.pl).
+First, note that this server uses the [`http_unix_daemon`
+library](http://eu.swi-prolog.org/pldoc/doc/swi/library/http/http_unix_daemon.pl).
 This library makes it extremely easy to run the web&nbsp;server as a
 Unix&nbsp;daemon by implicitly augmenting the code to let you
 configure the server using command line&nbsp;options. If you have an
@@ -176,7 +177,7 @@ encryption settings.
 As of 2016, it is possible to obtain an **A+** rating with SWI-Prolog
 HTTPS servers, by using:
 
-  - as ciphers: `EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:!RC4:!DES`
+  - as ciphers (see command line option `--cipherlist`): `EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:!RC4:!DES`
   - the `Strict-Transport-Security` header field, to enable HSTS.
 
 For additional security, you can encrypt the server's private key,
