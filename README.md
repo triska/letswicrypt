@@ -24,7 +24,7 @@ authority&nbsp;(CA).
 The tool is easy to install and run. Follow the instructions on their
 page, and then execute the following command on the host machine:
 
-    $ certbot certonly --standalone -d xyz.com -d www.xyz.com
+    $ sudo certbot certonly --standalone -d xyz.com -d www.xyz.com
 
 **Note**: This requires that you *stop* any server that listens on
 port&nbsp;80 or port&nbsp;443 until the certificate is obtained. There
