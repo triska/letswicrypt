@@ -190,6 +190,46 @@ To use an encrypted key when starting the server, use the
 where `FILE` stores the password and has suitably restrictive access
 permissions.
 
+# Renewing the certificate
+
+Once you have a web server running, you can use *Let's Encrypt* to
+obtain and *renew* your certificate *without stopping* the server.
+
+To use this feature, you must configure your web server to serve any
+files located in the directory&nbsp;**`.well-known`**. With the
+SWI-Prolog HTTP&nbsp;infrastructure, you can do this by adding the
+following directives to your&nbsp;server:
+
+    :- use_module(library(http/http_files)).
+    :- http_handler(root('.well-known/'), http_reply_from_files('.well-known', []), [prefix]).
+
+Restart the server and use the `--webroot` option as in the following
+example:
+
+<pre>
+$ sudo certbot certonly <b>--webroot</b> -w /var/www/xyz.com -d xyz.com -d www.xyz.com
+</pre>
+
+Please see `man certbot` for further options. For example, using
+`--logs-dir`, `--config-dir` and `--work-dir`, you can configure paths
+so that you can run `certbot` *without* root&nbsp;privileges. In the
+example above, it is assumed that your web content is located in the
+directory&nbsp;`/var/www/xyz.com`.
+
+In this mode of operation, *Let's Encrypt* uses the existing web
+server and file contents to verify that you control the domain.
+
+After you have done this, you can renew the certificate any time with:
+
+    $ certbot renew
+
+This automatically renews certificates that will expire within
+30&nbsp;days, again using the existing web server to establish you as
+the owner of the&nbsp;domain. You can run this command as a cronjob.
+
+After your certificate is renewed, you must restart your web server
+for the change to take&nbsp;effect.
+
 # Related projects
 
 Check out [**Proloxy**](https://github.com/triska/proloxy): It is a
