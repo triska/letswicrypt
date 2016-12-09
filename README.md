@@ -100,7 +100,7 @@ You can inspect the issued certificate with:
 ## Preliminaries: SWI-Prolog web server as Unix daemon
 
 SWI-Prolog is extremely well suited for writing
-[**web&nbsp;applications**](https://www.metalevel.at/prolog/web.html).
+[**web&nbsp;applications**](https://www.metalevel.at/prolog/web).
 
 The file [server.pl](server.pl) contains a very simple web server that
 is written using SWI-Prolog. In its current form, it simply replies
@@ -229,6 +229,35 @@ the owner of the&nbsp;domain. You can run this command as a cronjob.
 
 After your certificate is renewed, you must restart your web server
 for the change to take&nbsp;effect.
+
+# Server Name Indication (SNI)
+
+To host multiple domains from a single IP address, you need **Server
+Name Indication**&nbsp;(SNI). This TLS&nbsp;extension lets you
+indicate different certificates and keys depending on the
+*host&nbsp;name* that the client accesses.
+
+To use SNI, you need SWI-Prolog&ge;**7.3.31**.
+
+The HTTP Unix daemon can be configured to use&nbsp;SNI by providing
+suitable clauses of the predicate&nbsp;`http:sni_options/2`. The first
+argument is the *host&nbsp;name*, and the second argument is a list of
+SSL&nbsp;options for that domain. The most important options&nbsp;are:
+
+  - `certificate_file(+File)`: file that contains the **certificate**
+    and certificate&nbsp;chain
+  - `key_file(+File)`: file that contains the **private key**.
+
+For example, to specify a certificate and key for&nbsp;`abc.com`
+and&nbsp;`www.abc.com`, we can&nbsp;use:
+
+<pre>
+http:sni_options('abc.com', [certificate_file(CertFile),key_file(KeyFile)]) :-
+        CertFile = '/var/www/abc.com/server.crt',
+        KeyFile = '/var/www/abc.com/server.key'.
+http:sni_options('www.abc.com', Options) :-
+        http:sni_options('abc.com', Options).
+</pre>
 
 # Related projects
 
