@@ -5,6 +5,7 @@ Description=HTTPS Server
 UMask=022
 Environment=LANG=en_US.utf8
 Restart=on-abort
+ExecReload=/bin/kill -s HUP $MAINPID
 StartLimitInterval=60
 LimitNOFILE=1000
 DefaultStartLimitBurst=5
