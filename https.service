@@ -10,12 +10,12 @@ StartLimitInterval=60
 LimitNOFILE=1000
 DefaultStartLimitBurst=5
 WorkingDirectory=/home/you/letswicrypt
-ExecStart=/usr/local/bin/swipl server.pl --https --no-fork --user=you \
+ExecStart=/usr/local/bin/swipl server.pl --https --no-fork --user=www-data \
    --certfile=/var/www/xyz.com/server.crt \
    --keyfile=/var/www/xyz.com/server.key \
-   --workers=16 --syslog=https \
-   --cipherlist=DEFAULT:!RC4:!DES \
-   --keep_alive_timeout=600
+   --workers=16 \
+   --cipherlist=EECDH+AESGCM:EDH+AESGCM:EECDH+AES256:EDH+AES256:CHACHA20 \
+   --keep_alive_timeout=2
 
 [Install]
 WantedBy=multi-user.target
