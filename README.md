@@ -1,5 +1,8 @@
 # LetSWICrypt &mdash; HTTPS servers with SWI-Prolog
 
+SWI-Prolog is extremely well suited for writing
+[**web&nbsp;applications**](https://www.metalevel.at/prolog/web).
+
 This repository shows you how to set up and run a secure&nbsp;(HTTPS)
 web&nbsp;server using SWI-Prolog and *Let's&nbsp;Encrypt* and other
 certificate authorities.
@@ -98,9 +101,6 @@ You can inspect the issued certificate with:
     $ openssl x509 -in server.crt -text -noout
 
 ## Preliminaries: SWI-Prolog web server as Unix daemon
-
-SWI-Prolog is extremely well suited for writing
-[**web&nbsp;applications**](https://www.metalevel.at/prolog/web).
 
 The file [server.pl](server.pl) contains a very simple web server that
 is written using SWI-Prolog. In its current form, it simply replies
