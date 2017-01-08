@@ -259,6 +259,36 @@ http:sni_options('www.abc.com', Options) :-
         http:sni_options('abc.com', Options).
 </pre>
 
+# Exchanging certificates
+
+SWI-Prolog&ge;**7.3.34** makes it possible to *exchange* certificates
+while the&nbsp;server *keeps&nbsp;running*.
+
+One way to do this is as follows:
+
+1. Start your server *without* specifying a certificate or key.
+2. Use the extensible predicate `http:ssl_server_create_hook/3` to add
+   a certificate and key upon launch, while storing the original
+   SSL&nbsp;context. See&nbsp;`ssl_add_certificate_key/4`.
+3. When necessary, renew the certificate as explained above. Use
+   `ssl_add_certificate_key/4` to add the new certificate to the
+   original SSL&nbsp;context, obtaining a new&nbsp;context that is
+   associated with the updated certificate.
+4. Use the extensible predicate `http:ssl_server_open_client_hook/3`
+   to use the new&nbsp;context when negotiating client connections.
+
+See the [SSL documentation](http://eu.swi-prolog.org/pldoc/doc_for?object=section(%27packages/ssl.html%27))
+for more information.
+
+Using the original context as a baseline ensures that all command
+line&nbsp;options are adhered to and copied to new contexts that are
+created. For example, any specified *password* is securely retained in
+contexts and can therefore be used also for newly created&nbsp;keys.
+
+Note how [**logical purity**](https://www.metalevel.at/prolog/purity)
+of these predicates allows the thread-safe implementation of a feature
+that is not available in most other web&nbsp;servers.
+
 # Related projects
 
 Check out [**Proloxy**](https://github.com/triska/proloxy): It is a
