@@ -30,9 +30,9 @@ page, and then execute the following command on the host machine:
     $ sudo certbot certonly --standalone -d xyz.com -d www.xyz.com
 
 **Note**: This requires that you *stop* any server that listens on
-port&nbsp;80 or port&nbsp;443 until the certificate is obtained. There
+port&nbsp;80 or port&nbsp;443, until the certificate is obtained. There
 are also other ways to obtain a certificate that allow you to keep
-existing servers running. See the documentation for more information.
+existing servers running. See below for more information.
 
 After this is completed, you obtain 4 files in `/etc/letsencrypt/live/xyz.com/`:
 
