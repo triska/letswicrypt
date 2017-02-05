@@ -93,6 +93,12 @@ obtain them:
   - `server.key`: the server's private key
   - `server.crt`: the certificate and certificate chain.
 
+**Note**: With SWI-Prolog&ge;7.3.30, you can store the certificate
+and&nbsp;key in any location, and also *leave* the files in
+`/etc/letsencrypt/live/` if you used *Let's&nbsp;Encrypt* to obtain
+them. This is because recent versions of SWI-Prolog read these files
+*before* dropping privileges when starting an HTTPS&nbsp;server.
+
 As the name suggests, the private key is meant to be kept
 *private*. Therefore, make sure to use suitable file permissions.
 
