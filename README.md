@@ -295,6 +295,37 @@ Note how [**logical purity**](https://www.metalevel.at/prolog/purity)
 of these predicates allows the thread-safe implementation of a feature
 that is not available in most other web&nbsp;servers.
 
+# Doing it all manually
+
+Instead of relying on the Unix daemon library, you can also _manually_
+start an HTTPS&nbsp;server via `http_server/2`. This gives you total
+control over all aspects of the server, including those that cannot be
+specified as command line options. The options for `ssl_context/3` are
+specified as&nbsp;`ssl(+Options)`.
+
+For example:
+
+<pre>
+:- use_module(library(http/thread_httpd)).
+:- use_module(library(http/http_ssl_plugin)).
+
+https_server(Port, Options) :-
+        http_server(reply,
+                    [ port(Port),
+                      <b>ssl([ certificate_file('/var/www/xyz.com/server.crt'),
+                            key_file('/var/www/xyz.com/server.key')
+                          ])</b>
+                    | Options
+                    ]).
+reply(_) :-
+        format("Content-type: text/plain~n~n"),
+        format("Hello!").
+</pre>
+
+Typical use cases do *not* require this. A better way to obtain the
+same effect is to rely on the HTTP Unix daemon library, and use the
+available hooks for more fine-grained control of SSL&nbsp;parameters.
+
 # Related projects
 
 Check out [**Proloxy**](https://github.com/triska/proloxy): It is a
