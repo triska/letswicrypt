@@ -326,7 +326,7 @@ Typical use cases do *not* require this. A better way to obtain the
 same effect is to rely on the HTTP Unix daemon library, and use the
 available hooks for more fine-grained control of SSL&nbsp;parameters.
 
-# Related projects
+# Related topics
 
 Check out [**Proloxy**](https://github.com/triska/proloxy): It is a
 *reverse&nbsp;proxy* that is written entirely in SWI-Prolog. Use
@@ -335,6 +335,11 @@ under a common umbrella&nbsp;URL.
 
 Importantly, you can run Proloxy as an HTTPS&nbsp;server and thus
 encrypt traffic of all hosted services at once.
+
+For more cryptographic functionality of SWI-Prolog, check out
+[**`library(crypto)`**](http://eu.swi-prolog.org/pldoc/man?section=crypto). This
+library provides predicates for reasoning about secure hashes,
+symmetric and asymmetric encryption, and **digital&nbsp;signatures**.
 
 # Acknowledgments
 
