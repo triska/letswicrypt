@@ -1,10 +1,10 @@
-# LetSWICrypt &mdash; HTTPS servers with SWI-Prolog
+# LetSWICrypt &mdash; Prolog HTTPS servers
 
-SWI-Prolog is extremely well suited for writing
+Prolog is extremely well suited for writing
 [**web&nbsp;applications**](https://www.metalevel.at/prolog/web).
 
-This repository shows you how to set up and run a secure&nbsp;(HTTPS)
-web&nbsp;server using SWI-Prolog and *Let's&nbsp;Encrypt* and other
+This repository explains how to set up and run secure (**HTTPS**)
+web&nbsp;servers using SWI-Prolog with *Let's&nbsp;Encrypt* and other
 certificate authorities.
 
 # Requirements
