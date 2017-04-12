@@ -8,7 +8,7 @@ Restart=on-failure
 ExecReload=/bin/kill -s HUP $MAINPID
 StartLimitInterval=60
 LimitNOFILE=1000
-DefaultStartLimitBurst=5
+StartLimitBurst=5
 WorkingDirectory=/home/you/letswicrypt
 ExecStart=/usr/local/bin/swipl server.pl --https --no-fork --user=www-data \
    --certfile=/var/www/xyz.com/server.crt \
