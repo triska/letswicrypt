@@ -180,10 +180,10 @@ Once your server is running, use for example
 [SSL&nbsp;Labs](https://www.ssllabs.com/) to assess the quality of its
 encryption settings.
 
-As of 2016, it is possible to obtain an **A+** rating with SWI-Prolog
+As of 2017, it is possible to obtain an **A+** rating with SWI-Prolog
 HTTPS servers, by using:
 
-  - as ciphers (see command line option `--cipherlist`): `EECDH+AESGCM:EDH+AESGCM:EECDH+AES256:EDH+AES256`
+  - as ciphers (see command line option `--cipherlist`): `EECDH+AESGCM:EDH+AESGCM:EECDH+AES256:EDH+AES256:EECDH+CHACHA20:EDH+CHACHA20`
   - the `Strict-Transport-Security` header field, to enable HSTS.
 
 For additional security, you can encrypt the server's private key,
