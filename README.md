@@ -9,7 +9,7 @@ certificate authorities.
 
 # Requirements
 
-SWI-Prolog <b>7.3.21</b> or later ships with everything that is
+SWI-Prolog <b>7.5.8</b> or later ships with everything that is
 necessary to run HTTPS&nbsp;servers as described in the following.
 
 # Obtaining a certificate
@@ -93,11 +93,11 @@ obtain them:
   - `server.key`: the server's private key
   - `server.crt`: the certificate and certificate chain.
 
-**Note**: With SWI-Prolog&ge;7.3.30, you can store the certificate
-and&nbsp;key in any location, and also *leave* the files in
-`/etc/letsencrypt/live/` if you used *Let's&nbsp;Encrypt* to obtain
-them. This is because recent versions of SWI-Prolog read these files
-*before* dropping privileges when starting an HTTPS&nbsp;server.
+**Note**: You can store the certificate and&nbsp;key in any location,
+and also *leave* the files in `/etc/letsencrypt/live/` if you used
+*Let's&nbsp;Encrypt* to obtain them. This is because SWI-Prolog reads
+these files *before* dropping privileges when starting an
+HTTPS&nbsp;server.
 
 As the name suggests, the private key is meant to be kept
 *private*. Therefore, make sure to use suitable file permissions.
@@ -122,11 +122,12 @@ library](http://eu.swi-prolog.org/pldoc/doc/swi/library/http/http_unix_daemon.pl
 This library makes it extremely easy to run the web&nbsp;server as a
 Unix&nbsp;daemon by implicitly augmenting the code to let you
 configure the server using command line&nbsp;options. If you have an
-existing web server that you want to turn into a Unix daemon, apply
-the following steps:
+existing web server that you want to turn into a Unix daemon,
+simply add the following directive at the beginning:
 
-  - add `:- use_module(library(http/http_unix_daemon)).` at the beginning
-  - add the directive `:- initialization http_daemon.`
+<pre>
+:- use_module(library(http/http_unix_daemon)).
+</pre>
 
 Once you have done this, you can run the server with:
 
@@ -139,6 +140,9 @@ using an interactive Prolog&nbsp;toplevel, which you can enable with:
 <pre>
 $ swipl server.pl --port=PORT <b>--interactive</b>
 </pre>
+
+where `PORT` is any free port on your system. Try for
+example&nbsp;`--port=3041`.
 
 To find out more available command line options, use:
 
@@ -239,8 +243,8 @@ certificates while the server keeps running, which is described below.
 
 # Exchanging certificates
 
-SWI-Prolog&ge;**7.3.34** makes it possible to *exchange* certificates
-while the&nbsp;server *keeps&nbsp;running*.
+SWI-Prolog makes it possible to *exchange* certificates while
+the&nbsp;server *keeps&nbsp;running*.
 
 One way to do this is as follows:
 
@@ -273,8 +277,6 @@ To host multiple domains from a single IP address, you need **Server
 Name Indication**&nbsp;(SNI). This TLS&nbsp;extension lets you
 indicate different certificates and keys depending on the
 *host&nbsp;name* that the client accesses.
-
-To use SNI, you need SWI-Prolog&ge;**7.3.31**.
 
 The HTTP Unix daemon can be configured to use&nbsp;SNI by providing
 suitable clauses of the predicate&nbsp;`http:sni_options/2`. The first
