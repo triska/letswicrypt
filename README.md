@@ -118,7 +118,7 @@ principle for running an HTTPS&nbsp;server with any of the
 certificates we obtained in the previous steps.
 
 First, note that this server uses the [`http_unix_daemon`
-library](http://eu.swi-prolog.org/pldoc/doc/swi/library/http/http_unix_daemon.pl).
+library](http://eu.swi-prolog.org/pldoc/doc/_SWI_/library/http/http_unix_daemon.pl).
 This library makes it extremely easy to run the web&nbsp;server as a
 Unix&nbsp;daemon by implicitly augmenting the code to let you
 configure the server using command line&nbsp;options. If you have an
