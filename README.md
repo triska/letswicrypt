@@ -344,6 +344,11 @@ For more cryptographic functionality of SWI-Prolog, check out
 library provides predicates for reasoning about secure hashes,
 symmetric and asymmetric encryption, and **digital&nbsp;signatures**.
 
+See also the
+[**Cryptography**](https://www.metalevel.at/prolog/cryptography)
+chapter in
+[*The&nbsp;Power&nbsp;of&nbsp;Prolog*](https://www.metalevel.at/prolog).
+
 # Acknowledgments
 
 All this is is made possible thanks to:
