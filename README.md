@@ -7,6 +7,10 @@ This repository explains how to set up and run secure (**HTTPS**)
 web&nbsp;servers using SWI-Prolog with *Let's&nbsp;Encrypt* and other
 certificate authorities.
 
+**Project page**:
+
+[**https://www.metalevel.at/letswicrypt/**](https://www.metalevel.at/letswicrypt/)
+
 # Requirements
 
 SWI-Prolog <b>7.5.8</b> or later ships with everything that is
